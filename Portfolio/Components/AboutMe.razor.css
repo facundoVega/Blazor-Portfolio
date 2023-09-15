@@ -1,0 +1,127 @@
+﻿.image-col-content{
+    position:relative;
+    height:100%;
+}
+
+.image-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-container img {
+    width: 268px;
+    height: 268px;
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    border-color: #E0C78745;
+    border-radius: 300px;
+}
+
+.image-container .social-network-container {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    color: rgb(224, 199, 135);
+}
+
+.image-container .social-network-container a {
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(224, 199, 135);
+    font-size:1.125rem;
+}
+
+.about-me-info-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:30px;
+}
+
+.about-me-info-container h3 {
+    font-family: Poppins, sans-serif;
+    font-weight:900;
+    font-size: 28px;
+    line-height:28px;
+    color: rgb(57, 61, 71); 
+    margin-bottom:0;
+}
+
+.about-me-info-container .subtitle {
+    font-family: Poppins, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    color: rgb(41, 44, 51);
+}
+
+.about-me-info-container .content-info {
+    margin-bottom: 20px;
+    font-size:18px;
+    font-weight:400;
+    line-height: 27px;
+
+}
+
+@media (min-width: 576px) {
+
+    .about-me-info-container {
+        width: 60%;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .about-me-info-container {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .about-me-info-container {
+        width: 90%;
+        margin-top:40px;
+    }
+
+    .image-container {
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        margin-top:0;
+    }
+    .image-container .social-network-container {
+        width: 150px;
+        height:30px;
+    }
+
+    .image-container .social-network-container a {
+        font-size: 1.4375rem;
+        transition: font-size 200ms;
+        position:relative;
+        width:24px;
+        height:20px;
+    }
+    .image-container .social-network-container a i {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .image-container .social-network-container a:hover {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .about-me-info-container {
+        margin-left:0;
+    }
+
+}

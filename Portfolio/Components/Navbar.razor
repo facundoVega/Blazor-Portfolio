@@ -1,0 +1,82 @@
+﻿<div class="navbar-container">
+    <div class="@mobileMenuClass">
+        @foreach (var navItem in NavItems)
+        {
+            <a class="mobile-menu-link text-light" href="#">@navItem</a>
+        }
+        <button type="button" class="mobile-language-button" @onclick=toggleMobileLanguageMenu>
+            <i class="bi bi-globe2"></i>@activeLanguage
+        </button>
+
+        <div class="@mobileLanguageClass">
+            <a class="mobile-language-title" href="#" @onclick=toggleMobileLanguageMenu>
+                <span class="header-icon"><i class="bi bi-chevron-left"></i></span>
+                <span class="header-text">Select a language</span>
+            </a>
+            <ul class="mobile-language-list">
+                <li class="@(activeLanguage == "English" ? "active-language" : "")" @onclick='(()=>ToggleActiveLanguageItem("English"))'>English</li>
+                <li class="@(activeLanguage == "Español" ? "active-language" : "")" @onclick='(()=>ToggleActiveLanguageItem("Español"))'>Español</li>
+            </ul>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid main-navbar-container">
+            <a class="navbar-brand navbar-brand-icon text-light" href="#">@LogoPhrase</a>
+            <button class="navbar-toggler" type="button" @onclick=ToggleMobileMenu data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" hidden="@displayMobileMenu"><i class="bi bi-list"></i></span>
+                <span class="navbar-toggler-icon close-icon" hidden="@(!displayMobileMenu)"><i class="bi bi-x-lg"></i></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-items-container" id="navbarNavAltMarkup" >
+            <div class="navbar-nav">
+                @foreach(var navItem in NavItems)
+                    {
+                        <a class="nav-link text-light" href="#">@navItem</a>
+                    }
+            </div>
+        </div>
+        <div class="language-button-container">
+            <button type="button" @onclick=ToggleDropdown class="language-button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-globe2"></i>
+            </button>
+            <ul class="dropdown-menu language-dropdown-menu @(toggle)" tabindex="0">
+                <li class="language-item @(activeLanguage == "English" ? "active-language" : "")" @onclick='(()=>ToggleActiveLanguageItem("English"))'>English</li>
+                <li class="language-item @(activeLanguage == "Español" ? "active-language" : "")" @onclick='(()=>ToggleActiveLanguageItem("Español"))'>Español</li>
+            </ul>
+        </div>
+    </div> 
+</nav>
+</div>
+
+@code {
+    private string LogoPhrase = "FV";
+    private List<string> NavItems = new List<string>{ "About me", "Certs", "Stack", "Contact me", "Experience" };
+    private string toggle = "hide";
+    private bool displayMobileMenu = false;
+    private string mobileMenuClass = "mobile-menu-initial";
+    private string mobileLanguageClass = "mobile-menu-initial";
+    private string activeLanguage = "English";
+
+    private void ToggleDropdown()
+    {
+        toggle = toggle == "hide" ? "show" : "hide"; 
+
+    }
+
+    private void ToggleMobileMenu()
+    {
+        displayMobileMenu = !displayMobileMenu;
+        mobileLanguageClass = !displayMobileMenu && mobileLanguageClass == "mobile-language-show" ? "mobile-language-hide" : mobileLanguageClass;
+        mobileMenuClass = displayMobileMenu ? "mobile-menu-show" : "mobile-menu-hide";
+    }
+
+    private void toggleMobileLanguageMenu()
+    {
+        mobileLanguageClass = mobileLanguageClass == "mobile-menu-initial" || mobileLanguageClass == "mobile-language-hide" ?
+                                   "mobile-language-show" : "mobile-language-hide";
+    }
+
+    private void ToggleActiveLanguageItem(string currentItem)
+    {
+        activeLanguage = currentItem;
+    }
+}

@@ -1,0 +1,41 @@
+﻿.section-container {
+    background-color: #252525;
+    color: #efefef;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-left: -20px;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 12px;
+    font-size: 1.125rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    font-weight: 900
+}
+
+.section-container h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4375rem;
+    color: rgb(239, 239, 239);
+    font-weight: 900;
+}
+
+.section-container p {
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+
+    .section-container h2 {
+        font-size:3.25rem;
+    }
+}
