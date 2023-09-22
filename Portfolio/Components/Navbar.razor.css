@@ -1,10 +1,12 @@
 ﻿.navbar-container {
     position:relative;
     width:100%;
+    background-color: black;
 }
 
 .navbar {
     z-index:2;
+    background-color:black;
 }
 
 .main-navbar-container {
