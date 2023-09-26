@@ -37,37 +37,7 @@
     margin-top:20px;
 }
 
-.contact-me-container {
-    margin-top:40px;
-    width:95%;
-}
 
-.contact-me-container input {
-    border: none;
-    outline: none;
-    background: black;
-    border-bottom: 1px solid rgb(200, 213, 220);
-    width: 100%;
-    padding: 6px 16px 6px 16px;
-    color: rgb(200, 213, 220);
-    font-family: Poppins, sans-serif;
-}
-
-.contact-me-link {
-    margin-top: 20px;
-    background-color: #E0C787;
-    border-color: rgb(224, 199, 135);
-    border: none;
-    outline: none;
-    padding: 12px 65px 12px 65px;
-    color: white;
-    font-family: Poppins, sans-serif;
-    font-size: 1rem;
-    transition: all .5s ease;
-    text-decoration:none;
-    display:inline-block;
-
-}
 
 @media (min-width: 992px) {
 
@@ -79,30 +49,4 @@
         font-size: 3.25rem;
     }
 
-    .contact-me-link:hover {
-        background-color: transparent;
-        color: #E0C787;
-        outline: 1px solid rgb(224, 199, 135);
-        cursor: pointer;
-    }
-
-    .contact-me-container input {
-        width: 60%;
-        position:relative;
-        top:3px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .contact-me-link {
-        padding: 10px 22px 10px 22px;
-        margin-left: 20px;
-    }
-
-    .contact-me-link:hover {
-        background-color: transparent;
-        color: #E0C787;
-        outline: 1px solid rgb(224, 199, 135);
-        cursor: pointer;
-    }
 }

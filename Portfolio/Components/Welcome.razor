@@ -4,10 +4,7 @@
             <h5 class="title">Facundo Vega</h5>
             <h2 class="heading-title"> Software Engineer. Code Lover</h2>
             <p class="welcome-info"><strong>Join 120,000+ getting mindf*cked every Saturday morning</strong> while reading The Koe Letter (you’ll learn a bit about life & business too.)</p>
-            <div class="contact-me-container">
-                <input maxlength="30" @bind="CompanyInputValue"  placeholder="Company Name"  type="text" />
-                <a href="mailto:horacio_facundo.vega@hotmail.com@(GetBodyMailMessage)" class="contact-me-link">Contact me</a>
-            </div>
+            <ContactMeForm/>
         </div>
      </div>
 </div>
@@ -15,11 +12,5 @@
 
 
 @code {
-    private string? CompanyInputValue { get; set; }
-    private const string BodyMessage = "Hey%20Facundo%20we%20are%20{0},%20we%20want%20to%20work%20with%20you...";
-    private const string BodyMessageNoCompany = "Hey%20Facundo%20we%20want%20to%20work%20with%20you...";
-
-    private string GetBodyMailMessage => string.IsNullOrEmpty(CompanyInputValue) ? $"?body={BodyMessageNoCompany}" :
-        $"?body={string.Format(BodyMessage, CompanyInputValue)}";
 
 }

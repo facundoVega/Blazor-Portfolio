@@ -1,0 +1,100 @@
+﻿.footer-row {
+    background-color: #000000;
+    margin-left:-15px;
+    margin-right:-15px;
+    color: #EFEFEF;
+    padding: 98px 25px 0 25px;
+    margin-top:87px;
+}
+
+.contact-me-title {
+    color: rgb(239, 239, 239);
+    font-size: 2.4375rem;
+    line-height:46.8px;
+    letter-spacing: -1.1px;
+    font-weight:900;
+    font-family: Poppins, sans-serif;
+    margin-bottom:20px;
+}
+
+.contact-me-info {
+    color: rgb(239, 239, 239);
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 25.2px;
+    font-family: Poppins, sans-serif;
+}
+
+.social-network-container {
+    margin-top: 140px;
+    font-family: Poppins, sans-serif;
+}
+
+.portfolio-logo {
+    font-family: 'Caveat', cursive;
+    font-size: 4rem;
+    text-decoration: none;
+    color: white;
+}
+
+.network-title {
+    color: #EFEFEF;
+    font-weight:900;
+    font-size:1.125rem;
+    line-height: 27px;
+    margin-bottom:0;
+}
+
+.network-info {
+    font-size: 1.125rem;
+    font-weight:400;
+    line-height:27px;
+    margin-bottom:30px;
+}
+
+.trademark {
+    font-family: Poppins, sans-serif;
+    font-size: 1.142rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    color: rgb(200, 213, 220);
+    margin-top:124px;
+    display:block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+@media (min-width: 992px) {
+
+    .footer-row {
+        padding: 64px 38px 0 38px;
+        margin-top:40px;
+    }
+
+    .social-network-container {
+        max-width: 360px;
+        margin-top: 0;
+    }
+
+    .portfolio-logo {
+        font-size: 3rem;
+    }
+
+    .network-title{
+        margin-top:20px;
+    }
+
+    .network-info {
+        margin-bottom: 50px;
+    }
+
+    .contact-me-title {
+        font-size: 1.75rem;
+        margin-bottom: 10px;
+    }
+
+    .trademark {
+        margin-top:64px;
+    }
+}

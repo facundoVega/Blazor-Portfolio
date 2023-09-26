@@ -210,11 +210,15 @@
     font-family: 'Teko', sans-serif;
     font-size: 20px;
     margin-right: 10px;
+    text-decoration:underline;
+    text-decoration-color: transparent;
+    transition: all .6s ease;
 }
 
+
 .nav-link.text-light:hover {
-   cursor: pointer;
-   text-decoration: underline;
+    cursor: pointer;
+    text-decoration-color: white;
 }
 
 .language-button-container {

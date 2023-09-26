@@ -1,0 +1,41 @@
+﻿.social-network-container {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    color: rgb(224, 199, 135);
+}
+
+.social-network-container a {
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(224, 199, 135);
+    font-size: 1.125rem;
+}
+
+@media (min-width: 992px) {
+
+    .social-network-container {
+        width: 150px;
+        height: 30px;
+    }
+
+    .social-network-container a {
+        font-size: 1.4375rem;
+        transition: font-size 200ms;
+        position: relative;
+        width: 24px;
+        height: 20px;
+    }
+
+    .social-network-container a i {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .social-network-container a:hover {
+        font-size: 1.1rem;
+    }
+}
