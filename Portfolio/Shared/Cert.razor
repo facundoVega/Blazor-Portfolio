@@ -1,0 +1,25 @@
+﻿<div class="cert-container">
+    <img class="cert-image" src="@Image" alt="Azure developer associate badge">
+    <h3 class="cert-title">@Title</h3>
+    <p class="cert-info">@Info
+        <strong>@HighlitghtedText</strong> 
+    </p>
+    <a href="@Link" class="cert-button">View certificate</a>
+</div>
+
+@code {
+    [Parameter]
+    public string Image { get; set; }
+
+    [Parameter]
+    public string Link { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string Info { get; set; }
+
+    [Parameter]
+    public string HighlitghtedText { get; set; }
+}

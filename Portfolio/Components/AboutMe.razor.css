@@ -82,6 +82,10 @@
 
 @media (min-width: 992px) {
 
+    .about-me-container {
+        padding-left: 18px;
+    }
+
     .about-me-info-container {
         width: 90%;
         margin-top:40px;

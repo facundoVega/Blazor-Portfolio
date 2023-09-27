@@ -1,0 +1,54 @@
+﻿<SectionHeader Title="@HeaderTitle" Subtitle="@HeaderSubTitle" Info="@HeaderInfo" />
+<div class="row certs-container">
+    <div class="col-lg-6">
+        <Cert Image="@Certificates[0].Image" Title="@Certificates[0].Title" Info="@Certificates[0].Info" HighlitghtedText="@Certificates[0].HighlightedText" Link="@Certificates[0].Link" />
+        <Cert Image="@Certificates[1].Image" Title="@Certificates[1].Title" Info="@Certificates[1].Info" HighlitghtedText="@Certificates[1].HighlightedText" Link="@Certificates[1].Link" />
+
+    </div>
+    <div class="col-lg-6">
+        <Cert Image="@Certificates[2].Image" Title="@Certificates[2].Title" Info="@Certificates[2].Info" HighlitghtedText="@Certificates[2].HighlightedText" Link="@Certificates[2].Link" />
+        <Cert Image="@Certificates[3].Image" Title="@Certificates[3].Title" Info="@Certificates[3].Info" HighlitghtedText="@Certificates[3].HighlightedText" Link="@Certificates[3].Link" />
+    </div>
+</div>
+
+@code {
+    private string HeaderTitle { get; set; } = "Certs";
+    private string HeaderSubTitle { get; set; } = "Where Do I Start?";
+    private string HeaderInfo { get; set; } = "Gain clarity on your future, train your creativity, and learn a recession proof skill.";
+
+    private List<Certificate> Certificates = new List<Certificate>()
+    {
+        new Certificate()
+        {
+            Image = "images/amazon-cert.png",
+            Title = "7 Days To Genius - Free",
+            Info = "Learn faster, train your creativity, and craft unlimited genius level ideas for your content.",
+            Link = "https://www.credly.com/badges/eb40a577-388c-4d3f-806b-99bbcb186439/linked_in_profile",
+            HighlightedText = "All in one journaling, note-taking, and content creation"
+        },
+        new Certificate()
+        {
+            Image = "images/az-900-cert.png",
+            Title = "7 Days To Genius - Free",
+            Info = "Learn faster, train your creativity, and craft unlimited genius level ideas for your content.",
+            Link = "https://www.credly.com/badges/689d0e8d-eadf-4795-81ae-bea00ee27825?source=linked_in_profile",
+            HighlightedText = "All in one journaling, note-taking, and content creation"
+        },
+        new Certificate()
+        {
+            Image = "images/azure-developer-associate.png",
+            Title = "7 Days To Genius - Free",
+            Info = "Learn faster, train your creativity, and craft unlimited genius level ideas for your content.",
+            Link = "https://www.credly.com/badges/4baa5a63-eac0-4279-ad4c-60038d70324a/linked_in_profile",
+            HighlightedText = "All in one journaling, note-taking, and content creation"
+        },
+        new Certificate()
+        {
+            Image = "images/safe-cert.png",
+            Title = "7 Days To Genius - Free",
+            Info = "Learn faster, train your creativity, and craft unlimited genius level ideas for your content.",
+            Link = "https://www.credly.com/badges/4b27546f-4312-437c-8305-a715936797da?source=linked_in_profile",
+            HighlightedText = "All in one journaling, note-taking, and content creation"
+        }
+    };
+}
