@@ -39,6 +39,7 @@
     animation-duration: 0.3s;
     animation-name: fadeIn;
     transition: height 0.3s;
+    overflow-x: hidden;
 }
 
 .mobile-menu-hide {
@@ -51,6 +52,7 @@
     animation-duration: 0.3s;
     animation-name: fadeOut;
     transition: height 0.3s;
+    overflow-x: hidden;
 }
 
 .mobile-language-button {

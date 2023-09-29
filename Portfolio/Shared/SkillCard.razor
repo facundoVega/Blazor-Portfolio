@@ -1,0 +1,18 @@
+﻿@using BlazorStrap;
+
+<div class="card">
+    <img class="card-image" src="@Image">
+    <h3 class="card-title">@Title</h3>
+    <p class="card-info">@Info</p>
+</div>
+
+@code {
+    [Parameter]
+    public string Image { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string Info { get; set; }
+}
