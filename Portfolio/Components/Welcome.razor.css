@@ -8,6 +8,7 @@
     color: #efefef;
     margin-left:-12px;
     margin-right:-12px;
+    margin-top:74px;
 }
 
 .title {
@@ -43,6 +44,8 @@
 
     .content-container {
         padding: 80px 30px 80px 30px;
+        margin-top:0;
+        scroll-margin-top:-174px;
     }
 
     .heading-title {

@@ -1,0 +1,105 @@
+﻿.contact-container {
+    padding-top:70px;
+    width:100%;
+    scroll-margin-top: 73px;
+}
+
+.contact-content {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 1.5rem;
+    background:rgb(233, 249, 255);
+    max-width:1052px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.title {
+    color: rgb(180, 178, 197);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    font-weight: 900;
+    margin-bottom:16px;
+
+}
+
+.subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4375rem;
+    font-weight: 900;
+    color: rgb(19, 15, 73);
+    margin-bottom:48px;
+}
+
+.link-image {
+    width:60px;
+    margin-bottom:15px;
+    margin-right:16px;
+}
+
+.link {
+    color: rgb(180, 178, 197);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-decoration:none;
+    font-size: 1rem;
+    margin-top:10px;
+}
+
+.link:hover {
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+.logo-container {
+    display:none;
+}
+
+.links-list {
+    display: none;
+}
+
+
+@media (min-width: 992px) {
+
+    .contact-container {
+        scroll-margin-top: 0;
+    }
+
+    .contact-content {
+        padding-bottom: 48px;
+    }
+
+    .link {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+
+    .links-list {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        width: 220px;
+        margin-left: auto;
+        margin-right: 48px;
+        margin-top: 96px;
+    }
+
+    .link-list-item button {
+        text-decoration: none;
+        color: rgb(180, 178, 197);
+        font-family: 'Teko', sans-serif;
+        font-size: 1.25rem;
+        background: none;
+        border:none;
+    }
+
+    .link-list-item button:hover {
+        color: rgb(19, 15, 73);
+    }
+}

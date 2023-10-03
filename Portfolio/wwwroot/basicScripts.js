@@ -1,5 +1,6 @@
-﻿window.SetFocusToElement = (element) => {
-    element.onblur = function () {
-        element.className = 'dropdown-menu language-dropdown-menu hide';
-    }
+﻿window.scrollToElement = (elementId) => {
+    document.getElementById(elementId).scrollIntoView({
+        behavior: 'smooth'
+        
+    });
 };

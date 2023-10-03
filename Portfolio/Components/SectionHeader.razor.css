@@ -7,6 +7,7 @@
     padding-left: -20px;
     margin-left: -12px;
     margin-right: -12px;
+    scroll-margin-top: 73px;
 }
 
 
@@ -35,7 +36,11 @@
 
 @media (min-width: 768px) {
 
+    .section-container {
+        scroll-margin-top: 0;
+    }
+
     .section-container h2 {
-        font-size:3.25rem;
+        font-size: 3.25rem;
     }
 }

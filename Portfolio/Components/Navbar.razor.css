@@ -1,7 +1,8 @@
 ﻿.navbar-container {
-    position:relative;
+    position:fixed;
     width:100%;
     background-color: black;
+    z-index:5;
 }
 
 .navbar {
@@ -23,6 +24,8 @@
     margin-left: 40px;
     font-family: 'Caveat', cursive;
     font-size: 2rem;
+    background: none;
+    border: none;
 }
 
 .mobile-menu-initial {
@@ -197,10 +200,13 @@
     display: block;
     font-family: 'Teko', sans-serif;
     text-decoration: none;
-    font-size:14px;
-    padding-left:15px;
+    font-size: 14px;
+    padding-left: 15px;
     padding-top: 8px;
     padding-bottom: 8px;
+    background: none;
+    border: none;
+    text-align: left;
 }
 
 .mobile-menu-link.text-light:hover {
@@ -215,6 +221,8 @@
     text-decoration:underline;
     text-decoration-color: transparent;
     transition: all .6s ease;
+    background: none;
+    border: none;
 }
 
 
@@ -302,5 +310,9 @@
  
     .mobile-menu-show {
         display:none;
+    }
+
+    .navbar-container {
+        position: relative;
     }
 }

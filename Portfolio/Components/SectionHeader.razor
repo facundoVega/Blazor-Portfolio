@@ -1,4 +1,4 @@
-﻿<div class="section-container">
+﻿<div id="@SectionId" class="section-container">
     <h3 class="section-title">@Title</h3>
     <h2>@Subtitle</h2>
     <p>@Info</p>
@@ -14,4 +14,7 @@
 
     [Parameter]
     public string Info { get; set; }
+
+    [Parameter]
+    public string SectionId { get; set; }
 }

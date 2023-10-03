@@ -1,0 +1,27 @@
+﻿@inject IJSRuntime JS;
+
+
+<div id="contact-me" class="contact-container">
+    <div class="contact-content">
+        <h3 class="title">Contact Me</h3>
+        <h4 class="subtitle">Got a Project? Lets Talk!</h4>
+        <div class="contact-link-container">
+             <img class="link-image" src="/images/mail.svg" />
+            <a class="link" href="mailto:horacio_facundo.vega@hotmail.com">horacio_facundo.vega@hotmail.com</a>
+        </div>
+        <ul class="links-list">
+            <li class="link-list-item"><button @onclick='(()=>scrollTo("certs"))'>Certs</button></li>
+            <li class="link-list-item"><button @onclick='(()=>scrollTo("stack"))'>Stack</button></li>
+            <li class="link-list-item"><button @onclick='(()=>scrollTo("about-me"))'>About me</button></li>
+        </ul>
+    </div>
+
+</div>
+
+@code {
+    private void scrollTo(string elementId)
+    {
+        var jsInProcess = (IJSInProcessRuntime)JS;
+        jsInProcess.InvokeVoid("scrollToElement", elementId);
+    }
+}

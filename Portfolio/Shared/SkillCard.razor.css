@@ -2,12 +2,24 @@
     max-width: 250px;
     padding: 10px;
     background-color: rgb(37, 40, 44);
-    color: white;
+    color: #D9E3EA;
+    font-family: Poppins, sans-serif;
 }
 
+.card-title {
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+    font-size: 1.75rem;
+}
+
+.card-info {
+    font-weight: 400;
+    font-size: 1rem;
+}
 .card-image {
     width: 130px;
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom:10px;
 }

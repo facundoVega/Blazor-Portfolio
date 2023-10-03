@@ -1,8 +1,10 @@
-﻿<div class="navbar-container">
+﻿@inject IJSRuntime JS;
+
+<div class="navbar-container">
     <div class="@mobileMenuClass">
         @foreach (var navItem in NavItems)
         {
-            <a class="mobile-menu-link text-light" href="#">@navItem</a>
+            <button class="mobile-menu-link text-light" @onclick='(()=>scrollTo(navItem.LinkSectionId))'>@navItem.LinkValue</button>
         }
         <button type="button" class="mobile-language-button" @onclick=toggleMobileLanguageMenu>
             <i class="bi bi-globe2"></i>@activeLanguage
@@ -21,7 +23,7 @@
     </div>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid main-navbar-container">
-            <a class="navbar-brand navbar-brand-icon text-light" href="#">@LogoPhrase</a>
+            <button class="navbar-brand navbar-brand-icon text-light" @onclick='(()=>scrollTo("welcome"))'>@LogoPhrase</button>
             <button class="navbar-toggler" type="button" @onclick=ToggleMobileMenu data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" hidden="@displayMobileMenu"><i class="bi bi-list"></i></span>
                 <span class="navbar-toggler-icon close-icon" hidden="@(!displayMobileMenu)"><i class="bi bi-x-lg"></i></span>
@@ -30,7 +32,7 @@
             <div class="navbar-nav">
                 @foreach(var navItem in NavItems)
                     {
-                        <a class="nav-link text-light" href="#">@navItem</a>
+                        <button class="nav-link text-light" @onclick='(()=>scrollTo(navItem.LinkSectionId))'>@navItem.LinkValue</button>
                     }
             </div>
         </div>
@@ -49,7 +51,15 @@
 
 @code {
     private string LogoPhrase = "FV";
-    private List<string> NavItems = new List<string>{ "About me", "Certs", "Stack", "Contact me", "Experience" };
+    private List<Models.NavLink> NavItems = new List<Models.NavLink>()
+    { 
+        new Models.NavLink { LinkValue = "About me", LinkSectionId = "about-me" },
+        new Models.NavLink { LinkValue = "Certs", LinkSectionId = "certs" },
+        new Models.NavLink { LinkValue = "Stack", LinkSectionId = "stack" },
+        new Models.NavLink { LinkValue = "Contact me", LinkSectionId = "contact-me" },
+        new Models.NavLink { LinkValue = "Experience", LinkSectionId = "experience" },
+    };
+
     private string toggle = "hide";
     private bool displayMobileMenu = false;
     private string mobileMenuClass = "mobile-menu-initial";
@@ -73,6 +83,14 @@
     {
         mobileLanguageClass = mobileLanguageClass == "mobile-menu-initial" || mobileLanguageClass == "mobile-language-hide" ?
                                    "mobile-language-show" : "mobile-language-hide";
+    }
+
+    private void scrollTo(string elementId)
+    {
+        var jsInProcess = (IJSInProcessRuntime)JS;
+        jsInProcess.InvokeVoid("scrollToElement", elementId);
+        displayMobileMenu = false;
+        mobileMenuClass = "mobile-menu-hide";
     }
 
     private void ToggleActiveLanguageItem(string currentItem)

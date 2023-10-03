@@ -1,4 +1,4 @@
-﻿
+﻿@inject IJSRuntime JS;
 
 <div class="row footer-row">
     <div class="col-lg-6 order-lg-2">
@@ -12,7 +12,7 @@
     </div>
     <div class="col-lg-6 order-lg-1">
         <div class="social-network-container">
-            <a class="portfolio-logo" href="#">FV</a>
+            <button @onclick='(()=>scrollTo("welcome"))'  class="portfolio-logo">FV</button>
             <h3 class="network-title">Work Less. Earn More. Enjoy Life.</h3>
             <p class="network-info">I dive deep into human potential, lifestyle design, and one-person businesses to give you a unique, digestible way of improving your life.</p>
             <SocialLinks />
@@ -22,5 +22,9 @@
 </div>
 
 @code {
-
+    private void scrollTo(string elementId)
+    {
+        var jsInProcess = (IJSInProcessRuntime)JS;
+        jsInProcess.InvokeVoid("scrollToElement", elementId);
+    }
 }
