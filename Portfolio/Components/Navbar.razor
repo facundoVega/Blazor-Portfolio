@@ -1,4 +1,8 @@
-﻿@inject IJSRuntime JS;
+﻿@using BlazorStrap;
+@using Portfolio.State;
+@inject IJSRuntime JS;
+@inject ILanguageState languageState;
+@inject IConfiguration configuration;
 
 <div class="navbar-container">
     <div class="@mobileMenuClass">
@@ -23,7 +27,7 @@
     </div>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid main-navbar-container">
-            <button class="navbar-brand navbar-brand-icon text-light" @onclick='(()=>scrollTo("welcome"))'>@LogoPhrase</button>
+            <button class="navbar-brand navbar-brand-icon text-light" @onclick='(()=>scrollTo("app"))'>@LogoPhrase</button>
             <button class="navbar-toggler" type="button" @onclick=ToggleMobileMenu data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" hidden="@displayMobileMenu"><i class="bi bi-list"></i></span>
                 <span class="navbar-toggler-icon close-icon" hidden="@(!displayMobileMenu)"><i class="bi bi-x-lg"></i></span>
@@ -42,7 +46,7 @@
             </button>
             <ul class="dropdown-menu language-dropdown-menu @(toggle)" tabindex="0">
                 <li class="language-item @(activeLanguage == "English" ? "active-language" : "")" @onclick='(()=>ToggleActiveLanguageItem("English"))'>English</li>
-                <li class="language-item @(activeLanguage == "Español" ? "active-language" : "")" @onclick='(()=>ToggleActiveLanguageItem("Español"))'>Español</li>
+                <li class="language-item @(activeLanguage == "Spanish" ? "active-language" : "")" @onclick='(()=>ToggleActiveLanguageItem("Spanish"))'>Español</li>
             </ul>
         </div>
     </div> 
@@ -89,12 +93,34 @@
     {
         var jsInProcess = (IJSInProcessRuntime)JS;
         jsInProcess.InvokeVoid("scrollToElement", elementId);
-        displayMobileMenu = false;
-        mobileMenuClass = "mobile-menu-hide";
+
+        if (displayMobileMenu)
+        {
+            displayMobileMenu = false;
+            mobileMenuClass = "mobile-menu-hide";
+        }
     }
 
     private void ToggleActiveLanguageItem(string currentItem)
     {
-        activeLanguage = currentItem;
+        if(activeLanguage != currentItem)
+        {
+            activeLanguage = currentItem;
+            languageState.SetLanguage(activeLanguage);
+
+            UpdateText();
+        }
+        ToggleDropdown();
+    }
+
+    private void UpdateText()
+    {
+        var navbarItems = configuration.GetSection($"Navbar:{activeLanguage}").Get<List<string>>();
+
+        NavItems[0].LinkValue = navbarItems[0];
+        NavItems[1].LinkValue = navbarItems[1];
+        NavItems[2].LinkValue = navbarItems[2];
+        NavItems[3].LinkValue = navbarItems[3];
+        NavItems[4].LinkValue = navbarItems[4];
     }
 }

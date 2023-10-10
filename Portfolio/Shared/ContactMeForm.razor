@@ -1,9 +1,16 @@
 ﻿<div class="contact-me-container">
-    <input maxlength="30" @bind="CompanyInputValue" placeholder="Company Name" type="text" />
-    <a href="mailto:horacio_facundo.vega@hotmail.com@(GetBodyMailMessage)" class="contact-me-link">Contact me</a>
+    <input maxlength="30" @bind="CompanyInputValue" placeholder="@PlaceholderText" type="text" />
+    <a href="mailto:horacio_facundo.vega@hotmail.com@(GetBodyMailMessage)" class="contact-me-link">@ButtonText</a>
 </div>
 
 @code {
+
+    [Parameter]
+    public string PlaceholderText { get; set; }
+
+    [Parameter]
+    public string ButtonText { get; set; }
+
     private string? CompanyInputValue { get; set; }
     private const string BodyMessage = "Hey%20Facundo%20we%20are%20{0},%20we%20want%20to%20work%20with%20you...";
     private const string BodyMessageNoCompany = "Hey%20Facundo%20we%20want%20to%20work%20with%20you...";

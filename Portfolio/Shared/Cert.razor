@@ -4,7 +4,7 @@
     <p class="cert-info">@Info
         <strong>@HighlitghtedText</strong> 
     </p>
-    <a href="@Link" class="cert-button">View certificate</a>
+    <a href="@Link" class="cert-button">@ButtonText</a>
 </div>
 
 @code {
@@ -22,4 +22,8 @@
 
     [Parameter]
     public string HighlitghtedText { get; set; }
+
+    [Parameter]
+    public string ButtonText { get; set; }
+
 }

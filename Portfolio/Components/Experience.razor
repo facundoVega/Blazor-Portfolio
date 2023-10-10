@@ -1,18 +1,16 @@
-﻿<SectionHeader SectionId="experience" Title="@HeaderTitle" Subtitle="@HeaderSubTitle" Info="@HeaderInfo" />
+﻿@using Portfolio.State;
+@inject ILanguageState languageState;
+@implements IDisposable;
+@inject IConfiguration configuration;
+
+
+<SectionHeader SectionId="experience" Title="@content.HeaderTitle" Subtitle="@content.HeaderSubtitle" Info="@content.HeaderInfo" />
 <div class="row experience-main-container">
     <div class="col-lg-6">
         <div class="info-container">
-            <h2 class="title">Over the years,</h2>
+            <h2 class="title">@content.SectionTitle</h2>
             <p class="info">
-                I've built products for companies and businesses around the globe ranging from marketing websites to complex solutions and enterprise apps with focus on fast, elegant and accessible user experiences.
-
-                Currently, I work at Shopify as a Senior Frontend Engineer crafting thoughtful and inclusive experiences that adhere to web standards for over 3 million merchants across the world.
-
-                Before now, I was Principal Frontend Engineer at hellotax, where I worked on a suite of tools and services tailored towards automated VAT compliance for multi-channel sellers in Europe.
-
-                Prior to hellotax, I was Senior frontend engineering consultant with Pixel2HTML, building JavaScript applications and interfaces for orgs and individuals.
-
-                I once also led the frontend team at Conectar, an e-learning startup through building multiple React applications into a single robust learning platform.
+                  @content.SectionParagraph
             </p>
         </div>
     </div>
@@ -25,8 +23,22 @@
 </div>
 
 @code {
-    private string HeaderTitle = "Experience";
-    private string HeaderSubTitle = "Take a look on my experience";
-    private string HeaderInfo = "Gain clarity on your future, train your creativity, and learn a recession proof skill.";
+    private ExperienceContent content;
 
+    protected override void OnInitialized()
+    {
+        content = configuration.GetSection($"Experience:English").Get<ExperienceContent>();
+        languageState.OnChange += LanguageStateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        languageState.OnChange -= StateHasChanged;
+    }
+
+    private void LanguageStateHasChanged()
+    {
+        content = configuration.GetSection($"Experience:{languageState.SelectedLanguage}").Get<ExperienceContent>();
+        StateHasChanged();
+    }
 }

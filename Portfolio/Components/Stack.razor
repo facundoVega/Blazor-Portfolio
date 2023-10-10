@@ -1,4 +1,10 @@
-﻿<SectionHeader SectionId="stack"  Title="@HeaderTitle" Subtitle="@HeaderSubtitle" Info="@HeaderInfo" />
+﻿@using Portfolio.State;
+@inject ILanguageState languageState;
+@implements IDisposable
+@inject IConfiguration configuration;
+
+
+<SectionHeader SectionId="stack"  Title="@stackContent.HeaderTitle" Subtitle="@stackContent.HeaderSubtitle" Info="@stackContent.HeaderInfo" />
 <div class="row stack-container">
     <div class="col-lg-6">
         <div class="main-stack-container">
@@ -7,19 +13,36 @@
     </div>
     <div class="col-lg-6">
         <div class="stack-detail-container">
-            <h2 class="stack-detail-title">Modern Mastery HQ</h2>
-            <p class="stack-detail-info">Join 1000+ members improving themselves, their work, and their lifestyle.</p>
-            <p class="stack-detail-info"><strong>Gain instant access to 170+</strong> content, social media, branding, productivity, marketing, sales, fitness, and mental wealth strategies.</p>
-            <p class="stack-detail-info">(Not to mention the monthly challenges, community support, live trainings, workshops, and <strong>everything else you need to eliminate buying courses from your life.)</strong></p>
-            <p class="stack-detail-info">All for less than a dollar a day.</p>
+            <h2 class="stack-detail-title">@stackContent.SectionTitle</h2>
+            @foreach(string paragraph in stackContent.Paragraphs )
+            {
+                <p class="stack-detail-info">@paragraph</p>
+
+            }
         </div>
     </div>
 </div>
 
-<SkillCarousel />
+<SkillCarousel Items="@stackContent.StackItems" />
 
 @code {
-    private string HeaderTitle = "Stack";
-    private string HeaderSubtitle = "Join the new 1%";
-    private string HeaderInfo = "Curiosity exploration, 4-hour workdays, & digital real estate.";
+
+    private StackContent stackContent;
+
+    protected override void OnInitialized()
+    {
+        stackContent = configuration.GetSection($"Stack:English").Get<StackContent>();
+        languageState.OnChange += LanguageStateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        languageState.OnChange -= LanguageStateHasChanged;
+    }
+
+    private void LanguageStateHasChanged()
+    {
+        stackContent = configuration.GetSection($"Stack:{languageState.SelectedLanguage}").Get<StackContent>();
+        StateHasChanged();
+    }
 }

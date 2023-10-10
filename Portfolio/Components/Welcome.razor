@@ -1,16 +1,37 @@
-﻿<div id="welcome" class="row welcome-row">
+﻿@using Portfolio.State;
+@inject ILanguageState languageState;
+@implements IDisposable;
+@inject IConfiguration configuration;
+
+<div id="welcome" class="row welcome-row">
     <div class="col-lg-6">
         <div class="content-container">
             <h5 class="title">Facundo Vega</h5>
-            <h2 class="heading-title"> Software Engineer. Code Lover</h2>
-            <p class="welcome-info"><strong>Join 120,000+ getting mindf*cked every Saturday morning</strong> while reading The Koe Letter (you’ll learn a bit about life & business too.)</p>
-            <ContactMeForm/>
+            <h2 class="heading-title">@content.Title</h2>
+            <p class="welcome-info"><strong>@content.HighligthedParagraph</strong> @content.CommonParagraph</p>
+            <ContactMeForm ButtonText="@content.ButtonText" PlaceholderText="@content.PlaceHolderText"/>
         </div>
      </div>
 </div>
 
 
-
 @code {
+    private WelcomeContent content;
 
+    protected override void OnInitialized()
+    {
+        content = configuration.GetSection($"Welcome:English").Get<WelcomeContent>();
+        languageState.OnChange += LanguageStateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        languageState.OnChange -= StateHasChanged;
+    }
+
+    private void LanguageStateHasChanged()
+    {
+        content = configuration.GetSection($"Welcome:{languageState.SelectedLanguage}").Get<WelcomeContent>();
+        StateHasChanged();
+    }
 }

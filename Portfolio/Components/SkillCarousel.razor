@@ -2,83 +2,45 @@
 <div div class="row">
     <div class="col-12 d-block d-md-none">
         <BSCarousel HasControls="true" HasIndicators="true">
-            <BSCarouselItem Interval="0">
-                <div class="skill-card-container">
-                    <SkillCard Title="Angular" Image="/Images/angular-logo.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                </div>
-            </BSCarouselItem>
-            <BSCarouselItem Interval="0">
-                <div class="skill-card-container">
-                    <SkillCard Title="Net core" Image="/Images/Net.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                </div>
-            </BSCarouselItem>
-            <BSCarouselItem Interval="0">
-                <div class="skill-card-container">
-                    <SkillCard Title="SQL Server" Image="/Images/sql-logo.jpg" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                </div>
-            </BSCarouselItem>
-            <BSCarouselItem Interval="0">
-                <div class="skill-card-container">
-                    <SkillCard Title="Azure cloud" Image="/Images/microsoft-azure.svg" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                </div>
-            </BSCarouselItem>
-            <BSCarouselItem Interval="0">
-                <div class="skill-card-container">
-                    <SkillCard Title="Javascript" Image="/Images/JavaScript.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                </div>
-            </BSCarouselItem>
-            <BSCarouselItem Interval="0">
-                <div class="skill-card-container">
-                    <SkillCard Title="React" Image="/Images/react-logo.webp" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                </div>
-            </BSCarouselItem>
-            <BSCarouselItem Interval="0">
-                <div class="skill-card-container">
-                    <SkillCard Title="CSS" Image="/Images/CSS3.jpg" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                </div>
-            </BSCarouselItem>
-            <BSCarouselItem Interval="0">
-                <div class="skill-card-container">
-                    <SkillCard Title="EF Core" Image="/Images/EFCore.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                </div>
-            </BSCarouselItem>
-            <BSCarouselItem Interval="0">
-                <div class="skill-card-container">
-                    <SkillCard Title="LinQ" Image="/Images/Linq.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                </div>
-            </BSCarouselItem>
+            @foreach(var card in Items)
+            {
+                <BSCarouselItem Interval="0">
+                    <div class="skill-card-container">
+                        <SkillCard Title="@card.Title" Image="@card.Image" Info="@card.Info" />
+                    </div>
+                </BSCarouselItem>
+            }
         </BSCarousel>
     </div>
-
     <div class="col-12 d-none d-md-block  d-lg-none ">
         <BSCarousel HasControls="true" HasIndicators="true">
             <BSCarouselItem Interval="0">
                 <div class="skill-card-container">
-                    <SkillCard Title="Angular" Image="/Images/angular-logo.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                    <SkillCard Title="Net core" Image="/Images/Net.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
+                    <SkillCard Title="@Items[0].Title" Image="@Items[0].Image" Info="@Items[0].Info" />
+                    <SkillCard Title="@Items[1].Title" Image="@Items[1].Image" Info="@Items[1].Info" />
                 </div>
             </BSCarouselItem>
             <BSCarouselItem Interval="0">
                 <div class="skill-card-container">
-                    <SkillCard Title="SQL Server" Image="/Images/sql-logo.jpg" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                    <SkillCard Title="Azure cloud" Image="/Images/microsoft-azure.svg" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
+                    <SkillCard Title="@Items[2].Title" Image="@Items[2].Image" Info="@Items[2].Info" />
+                    <SkillCard Title="@Items[3].Title" Image="@Items[3].Image" Info="@Items[3].Info" />
                 </div>
             </BSCarouselItem>
             <BSCarouselItem Interval="0">
                 <div class="skill-card-container">
-                    <SkillCard Title="Javascript" Image="/Images/JavaScript.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                    <SkillCard Title="React" Image="/Images/react-logo.webp" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
+                    <SkillCard Title="@Items[4].Title" Image="@Items[4].Image" Info="@Items[4].Info" />
+                    <SkillCard Title="@Items[5].Title" Image="@Items[5].Image" Info="@Items[5].Info" />
                 </div>
             </BSCarouselItem>
             <BSCarouselItem Interval="0">
                 <div class="skill-card-container">
-                    <SkillCard Title="CSS" Image="/Images/CSS3.jpg" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                    <SkillCard Title="EF Core" Image="/Images/EFCore.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
+                    <SkillCard Title="@Items[6].Title" Image="@Items[6].Image" Info="@Items[6].Info" />
+                    <SkillCard Title="@Items[7].Title" Image="@Items[7].Image" Info="@Items[7].Info" />
                 </div>
             </BSCarouselItem>
             <BSCarouselItem Interval="0">
                 <div class="skill-card-container">
-                    <SkillCard Title="LinQ" Image="/Images/Linq.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
+                    <SkillCard Title="@Items[8].Title" Image="@Items[8].Image" Info="@Items[8].Info" />
                 </div>
             </BSCarouselItem>
         </BSCarousel>
@@ -87,23 +49,23 @@
         <BSCarousel HasControls="true" HasIndicators="true">
             <BSCarouselItem Interval="0">
                 <div class="skill-card-container">
-                    <SkillCard Title="Angular" Image="/Images/angular-logo.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                    <SkillCard Title="Net core" Image="/Images/Net.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                    <SkillCard Title="SQL Server" Image="/Images/sql-logo.jpg" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
+                    <SkillCard Title="@Items[0].Title" Image="@Items[0].Image" Info="@Items[0].Info" />
+                    <SkillCard Title="@Items[1].Title" Image="@Items[1].Image" Info="@Items[1].Info" />
+                    <SkillCard Title="@Items[2].Title" Image="@Items[2].Image" Info="@Items[2].Info" />
                 </div>
             </BSCarouselItem>
             <BSCarouselItem Interval="0">
                 <div class="skill-card-container">
-                     <SkillCard Title="Azure cloud" Image="/Images/microsoft-azure.svg" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                    <SkillCard Title="Javascript" Image="/Images/JavaScript.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                    <SkillCard Title="React" Image="/Images/react-logo.webp" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
+                    <SkillCard Title="@Items[3].Title" Image="@Items[3].Image" Info="@Items[3].Info" />
+                    <SkillCard Title="@Items[4].Title" Image="@Items[4].Image" Info="@Items[4].Info" />
+                    <SkillCard Title="@Items[5].Title" Image="@Items[5].Image" Info="@Items[5].Info" />
                 </div>
             </BSCarouselItem>
             <BSCarouselItem Interval="0">
                 <div class="skill-card-container">
-                    <SkillCard Title="CSS" Image="/Images/CSS3.jpg" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                    <SkillCard Title="EF Core" Image="/Images/EFCore.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
-                    <SkillCard Title="LinQ" Image="/Images/Linq.png" Info="Angular is a TypeScript-based, free and open-source single-page web application framework" />
+                    <SkillCard Title="@Items[6].Title" Image="@Items[6].Image" Info="@Items[6].Info" />
+                    <SkillCard Title="@Items[7].Title" Image="@Items[7].Image" Info="@Items[7].Info" />
+                    <SkillCard Title="@Items[8].Title" Image="@Items[8].Image" Info="@Items[8].Info" />
                 </div>
             </BSCarouselItem>
         </BSCarousel>
@@ -113,5 +75,6 @@
 
 
 @code {
-
+    [Parameter]
+    public List<StackItem> Items { get; set; }
 }

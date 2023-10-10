@@ -1,4 +1,11 @@
-﻿<SectionHeader SectionId="about-me" Title="@HeaderTitle" Subtitle="@HeaderSubtitle" Info="@HeaderInfo" />
+﻿@using Portfolio.State;
+@inject ILanguageState languageState;
+@implements IDisposable;
+@inject IConfiguration configuration;
+
+
+
+<SectionHeader SectionId="about-me" Title="@aboutMeContent.HeaderTitle" Subtitle="@aboutMeContent.HeaderSubtitle" Info="@aboutMeContent.HeaderInfo" />
 <div class="row about-me-container">
     <div class="col-lg-3">
         <div class="image-col-content">
@@ -10,22 +17,34 @@
     </div>
     <div class="col-lg-9">
         <div class="about-me-info-container">
-            <h3>Hey, I'm Facundo.</h3>
-            <p class="subtitle"> I’m a software engineer with plus 4 years of experience, in all kind of projects.</p>
-            <p class="content-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p class="content-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-            <p class="content-info">Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.</p>
-            <p class="content-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
-            <p class="content-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
-            <p class="content-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+            <h3>@aboutMeContent.SectionTitle</h3>
+            <p class="subtitle">@aboutMeContent.SectionSubtitle</p>
+            @foreach (string paragraph in aboutMeContent.Paragraphs)
+            {
+                <p class="content-info">@paragraph</p>
+            }
         </div>
     </div>
 </div>
 
 
 @code {
-    private string HeaderTitle = "About me";
-    private string HeaderSubtitle = "Who is Facundo Vega?";
-    private string HeaderInfo = "A software engineer passionate about coding";
+    private AboutMeContent aboutMeContent;
 
+    protected override void OnInitialized()
+    {
+        aboutMeContent = configuration.GetSection($"AboutMe:English").Get<AboutMeContent>();
+        languageState.OnChange += LanguageStateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        languageState.OnChange -= StateHasChanged;
+    }
+
+    private void LanguageStateHasChanged()
+    {
+        aboutMeContent = configuration.GetSection($"AboutMe:{languageState.SelectedLanguage}").Get<AboutMeContent>();
+        StateHasChanged();
+    }
 }
