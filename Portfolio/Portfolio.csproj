@@ -11,6 +11,7 @@
     <PackageReference Include="BlazorStrap.V5" Version="5.1.102.51723" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0" PrivateAssets="all" />
+    <PackageReference Include="PublishSPAforGitHubPages.Build" Version="2.1.0" />
   </ItemGroup>
 
 </Project>
