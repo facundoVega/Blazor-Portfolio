@@ -21,7 +21,7 @@
             </a>
             <ul class="mobile-language-list">
                 <li class="@(activeLanguage == "English" ? "active-language" : "")" @onclick='(()=>ToggleActiveLanguageItem("English"))'>English</li>
-                <li class="@(activeLanguage == "Español" ? "active-language" : "")" @onclick='(()=>ToggleActiveLanguageItem("Español"))'>Español</li>
+                <li class="@(activeLanguage == "Spanish" ? "active-language" : "")" @onclick='(()=>ToggleActiveLanguageItem("Spanish"))'>Español</li>
             </ul>
         </div>
     </div>
@@ -110,7 +110,7 @@
 
             UpdateText();
         }
-        ToggleDropdown();
+        toggle = "hide";
     }
 
     private void UpdateText()
