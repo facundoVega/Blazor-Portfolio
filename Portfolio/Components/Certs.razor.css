@@ -1,12 +1,18 @@
 ﻿.certs-container {
-    padding-top:40px;
-    padding-bottom:40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 @media (min-width: 992px) {
     .certs-container {
         padding-bottom: 10px;
         padding-left: 18px;
+        padding-top: 90px;
         padding-right:18px;
+        min-height: 400px;
     }
 }

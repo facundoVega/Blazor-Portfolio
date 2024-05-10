@@ -1,10 +1,8 @@
-﻿<div class="cert-container">
+﻿@inject NavigationManager NavigationManager
+
+<div class="cert-container" @onclick='NavigateToCert'>
     <img class="cert-image" src="@Image" alt="Azure developer associate badge">
     <h3 class="cert-title">@Title</h3>
-    <p class="cert-info">@Info
-        <strong>@HighlitghtedText</strong> 
-    </p>
-    <a href="@Link" class="cert-button">@ButtonText</a>
 </div>
 
 @code {
@@ -25,5 +23,10 @@
 
     [Parameter]
     public string ButtonText { get; set; }
+
+    private void NavigateToCert()
+    {
+        NavigationManager.NavigateTo(Link);
+    }
 
 }
